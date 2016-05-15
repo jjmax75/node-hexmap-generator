@@ -4,7 +4,8 @@
   "description": "Generates a Hex Tile Map from a png",
   "main": "index.js",
   "scripts": {
-    "test": "tape test/*.js"
+    "start": "node index.js",
+    "test": "tape test/*.js | faucet"
   },
   "repository": {
     "type": "git",
@@ -22,6 +23,12 @@
   },
   "homepage": "https://github.com/jjmax75/node-hexmap-generator#readme",
   "devDependencies": {
+    "faucet": "0.0.1",
     "tape": "4.5.1"
+  },
+  "dependencies": {
+    "d3": "3.5.17",
+    "d3-hexbin": "0.2.0",
+    "pngjs": "2.3.1"
   }
 }
