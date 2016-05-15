@@ -1,0 +1,27 @@
+{
+  "name": "node-hex-map-generator",
+  "version": "1.0.0",
+  "description": "Generates a Hex Tile Map from a png",
+  "main": "index.js",
+  "scripts": {
+    "test": "tape test/*.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/jjmax75/node-hexmap-generator.git"
+  },
+  "keywords": [
+    "Node",
+    "D3",
+    "Hex Map"
+  ],
+  "author": "Sean Behan <behanj@gmail.com> (http://boxitoff.com)",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/jjmax75/node-hexmap-generator/issues"
+  },
+  "homepage": "https://github.com/jjmax75/node-hexmap-generator#readme",
+  "devDependencies": {
+    "tape": "4.5.1"
+  }
+}
