@@ -14,8 +14,8 @@ Output - array of map terrain to file -
 
 ## Tasks
 - [x] get image width and height
-- [ ] get hex radius
-- [ ] get center point of each hex
+- [x] get hex radius
+- [x] get center point of each hex
 - [ ] get pixel sample (array->rgba values) function
 - [ ] get average colour(array->rgb) of each sample
 - [ ] get hsv(array) values from rgb averages
