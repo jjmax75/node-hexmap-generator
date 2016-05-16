@@ -12,7 +12,8 @@ Output - array of map terrain to file -
 - command line inputs
 - Browser gui
 
-- [ ] get image width and height
+## Tasks
+- [x] get image width and height
 - [ ] get hex radius
 - [ ] get center point of each hex
 - [ ] get pixel sample (array->rgba values) function
