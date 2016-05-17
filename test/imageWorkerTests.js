@@ -22,8 +22,10 @@ test('imageWorker function returns tests', function(t) {
 });
 
 test('getting pixels functions', function(t) {
-  t.plan(3);
+  t.plan(5);
   t.equal(testImagePixels.data.length, 3516000, 'should be a lot of pixels in there fool');
   t.deepEqual(testImage.sampleGetter(testImagePixels, 0, 0, 1), [9, 29, 40, 255], 'rgba of the centre pixel of the first hexagon');
   t.deepEqual(testImage.sampleGetter(testImagePixels, 27, 12, 1), [10, 30, 41, 255], 'rgba of the centre pixel of the 500th hexagon');
+  t.deepEqual(testImage.sampleGetter(testImagePixels, 1059, 475, 1), [9, 40, 61, 255], 'rgba of the centre pixel of the 2000th hexagon');
+  t.deepEqual(testImage.sampleGetter(testImagePixels, 27, 12, 10).length, 400, 'sample should be an array with 10*10*4 elements');
 });

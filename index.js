@@ -1,5 +1,6 @@
 'use strict';
 
+const fs = require('fs');
 const path = process.cwd();
 
 const imageFile = path + '/' + process.argv[2];
@@ -24,15 +25,69 @@ function setImagePixels(pixels) {
   getSamplePixelsColours(pixels);
 }
 function getSamplePixelsColours(pixels) {
-  const radius = Math.floor(hexRadius);
-  //hexCentres.forEach(function(hexCentrePixel) {
-  (function() {
-    let roundedHexCentrePixelX = Math.round(hexCentres[2000][0]);
-    let roundedHexCentrePixelY = Math.round(hexCentres[2000][1]);
-    var sample = image.sampleGetter(pixels, roundedHexCentrePixelX, roundedHexCentrePixelY, 1)
-    // send the pixelsArray, each centre pixel, radius to sampleGetter to get back sample
-    // image.sampleGetter(pixels, centre pixel, radius)
-    console.log(roundedHexCentrePixelX, roundedHexCentrePixelY);
-    console.log(sample);
-  }());
+  const length = Math.floor(hexRadius);
+  hexCentres.forEach(function(hexCentrePixel) {
+    let roundedHexCentrePixelX = Math.round(hexCentrePixel[0]);
+    let roundedHexCentrePixelY = Math.round(hexCentrePixel[1]);
+    // send the pixelsArray, each centre pixelX&Y, length to sampleGetter
+    sampleColours.push(image.sampleGetter(pixels, roundedHexCentrePixelX, roundedHexCentrePixelY, length));
+  });
+  getAverageColours();
+}
+
+function getAverageColours() {
+  let averageColours = [];
+  sampleColours.forEach(function(sample) {
+    averageColours.push(image.averageColour(sample));
+  });
+  convertToHSV(averageColours);
+}
+
+function convertToHSV(averageColours) {
+  let hsvValues = [];
+
+  averageColours.forEach(function(rgb) {
+    hsvValues.push(image.rgbToHsv(rgb.r, rgb.g, rgb.b));
+  });
+
+  mapColourToTileType(hsvValues);
+}
+
+function mapColourToTileType(hsvValues) {
+  var terrain = [];
+
+  function getCellType(cellHue) {
+    switch (true) {
+      case (cellHue <= 35):
+        return 'mountain';
+        break;
+      case (cellHue <= 59):
+        return 'desert';
+        break;
+      case (cellHue <= 159):
+        return 'land';
+        break;
+      case (cellHue <= 240):
+        return 'water';
+        break;
+      default:
+        return 'wtf';
+    }
+  }
+
+  hsvValues.forEach(function(hsv) {
+    terrain.push(String(getCellType(hsv.h)));
+  });
+
+  writeToFile(terrain);
+}
+
+function writeToFile(terrain) {
+  fs.writeFile(outputFile, JSON.stringify(terrain), function(err) {
+    if(err) {
+        return console.log(err);
+    }
+
+    console.log("The file was saved!");
+  });
 }
