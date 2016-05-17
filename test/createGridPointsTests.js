@@ -3,6 +3,8 @@
 const test = require('tape');
 const createGridPoints = require('../src/createGridPoints');
 const testGrid = createGridPoints(1465, 600, 70, 35);
+const testHexRadius = 11.320754716981131;
+const testHexCentreArray = testGrid.calculateEachHexCentre(testHexRadius);
 
 test('createGridPoints helper functions return values', function(t) {
   t.plan(2);
@@ -11,8 +13,6 @@ test('createGridPoints helper functions return values', function(t) {
 });
 
 test('createGridPoints points functions return values', function(t) {
-  const testHexRadius = 11.320754716981131;
-  const testHexCentreArray = testGrid.calculateEachHexCentre(testHexRadius);
   t.plan(8);
   t.ok(Array.isArray(testHexCentreArray), 'should be an array');
   t.equal(testHexCentreArray.length, 2433, 'should have 2433 elements in array');

@@ -16,13 +16,21 @@ function imageWorker(pngFile) {
     getPixels(image.file, function(err, pixels) {
       if (err) console.error(err);
       console.log('Crunching Pixels Baby! Yeah!');
-      cb(pixels.data);
+      cb(pixels);
     })
   };
 
-  image.sampleGetter = function(pixels, radius) {
-    
+  image.sampleGetter = function(pixels, xPos, yPos, length) {
+    var sampleArray = [];
+    for (var y = yPos; y < yPos + length; y++){
+      for (var x = xPos; x < xPos + length; x++){
+        for (var z = 0; z < 4; z++){
+          sampleArray.push(pixels.get(x, y, z));
+        }
+      }
+    }
 
+    return sampleArray;
   };
 
   return image;

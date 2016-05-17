@@ -1,7 +1,5 @@
 'use strict';
 
-var d3 = require('d3');
-
 function createGridPoints(imgWidth, imgHeight, numCols, numRows) {
   let gridPoints = new Object();
 
@@ -15,8 +13,8 @@ function createGridPoints(imgWidth, imgHeight, numCols, numRows) {
   };
 
   gridPoints.calculateHexRadius = function() {
-     return d3.min([imgWidth/((numCols + 0.5) * Math.sqrt(3)),
-       imgHeight/((numRows + 1/3) * 1.5)]);
+     return Math.min(gridPoints.imgWidth/((gridPoints.numCols + 0.5) * Math.sqrt(3)),
+       gridPoints.imgHeight/((gridPoints.numRows + 1/3) * 1.5));
   };
 
   gridPoints.calculateEachHexCentre = function(hexRadius) {

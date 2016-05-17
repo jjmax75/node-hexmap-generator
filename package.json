@@ -5,7 +5,7 @@
   "main": "index.js",
   "scripts": {
     "start": "node index.js",
-    "test": "tape test/*.js"
+    "test": "tape test/*.js | tap-dot"
   },
   "repository": {
     "type": "git",
@@ -23,7 +23,7 @@
   },
   "homepage": "https://github.com/jjmax75/node-hexmap-generator#readme",
   "devDependencies": {
-    "faucet": "0.0.1",
+    "tap-dot": "1.0.5",
     "tape": "4.5.1"
   },
   "dependencies": {
