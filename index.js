@@ -76,7 +76,7 @@ function mapColourToTileType(hsvValues) {
   }
 
   hsvValues.forEach(function(hsv) {
-    terrain.push(String(getCellType(hsv.h)));
+    terrain.push(getCellType(hsv.h));
   });
 
   writeToFile(terrain);

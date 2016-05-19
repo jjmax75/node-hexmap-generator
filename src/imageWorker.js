@@ -22,36 +22,37 @@ function imageWorker(pngFile) {
 
   image.sampleGetter = function(pixels, xPos, yPos, length) {
     let sampleArray = [];
-    const topLeftX = xPos - length/2; // x coord of top left corner of sample
-    const topLeftY = yPos - length/2; // y coord of top left corner of sample
+    let xLength = length;
+    let yLength = length;
 
-    let inputs = {
-      x: topLeftX,
-      y: topLeftY,
-      xLength: length,
-      yLength: length
-    };
-
-    if (topLeftX < 0 && topLeftY < 0) {
-      inputs.x = xPos;
-      inputs.y = yPos;
-      inputs.xLength = length/2;
-      inputs.yLength = length/2;
-    } else if (topLeftX < 0) {
-      inputs.x = xPos;
-      inputs.xLength = length/2;
-    } else if (topLeftY < 0) {
-      inputs.y = yPos;
-      inputs.yLength = length/2;
+    if (xPos > 0) {
+      xPos = Math.round(xPos - length/2);
     }
 
-    for (let y = inputs.y; y < inputs.y + inputs.yLength; y++){
-      for (let x = inputs.x; x < inputs.x + inputs.xLength; x++){
-        for (let z = 0; z < 4; z++){
+    if (yPos > 0) {
+      yPos = Math.round(yPos - length/2);
+    }
+
+    if (xPos <= 0) {
+      xLength = Math.round(length/2);
+    }
+
+    if (yPos <= 0) {
+      yLength = Math.round(length/2);
+    }
+
+
+    // testing with just centre pixel
+    for (let y = yPos; y < yPos + yLength; y++) {
+      for (let x = xPos; x < xPos + xLength; x++) {
+        for (var z = 0; z < 4; z++) {
           sampleArray.push(pixels.get(x, y, z));
         }
       }
     }
+    // for (var z = 0; z < 4; z++) {
+    //   sampleArray.push(pixels.get(xPos, yPos, z));
+    // }
 
     return sampleArray;
   };

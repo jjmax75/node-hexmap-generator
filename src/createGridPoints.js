@@ -38,30 +38,6 @@ function createGridPoints(imgWidth, imgHeight, numCols, numRows) {
     return points;
   };
 
-  // gridPoints.getSamples = function(image, points, hexRadius) {
-  //   var samples = [];
-  //
-  //   function getPixels(x, y, sampleLength) {
-  //     var topLeftX = x - sampleLength/2; // x coord of top left corner of sample
-  // 		var topLeftY = y - sampleLength/2; // y coord of top left corner of sample
-  //
-  //     // if (topLeftX >= 0 && topLeftY >= 0){
-  // 		// 	return context.getImageData(topLeftX, topLeftY, sampleLength, sampleLength);
-  // 		// } else if (topLeftX < 0 && topLeftY < 0) {
-  // 		// 	return context.getImageData(pointX, pointY, sampleLength/2, sampleLength/2);
-  // 		// } else if (topLeftX < 0) {
-  // 		// 	return context.getImageData(pointX, topLeftY, sampleLength/2, sampleLength);
-  // 		// } else {
-  // 		// 	return context.getImageData(topLeftX, pointY, sampleLength, sampleLength/2);
-  // 		// }
-  //   }
-  //
-  //   points.forEach(function(point) {
-  //     samples.push(getPixels(point[0], point[1], hexRadius));
-  //   });
-  //   return samples;
-  // };
-
   return gridPoints;
 }
 
