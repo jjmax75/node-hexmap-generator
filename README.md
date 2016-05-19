@@ -9,7 +9,9 @@ Turn this -
 
 ![An image of part of the world][world]
 
-[world]: https://github.com/jjmax75/node-hexmap-generator/blob/master/test/resources/map.png "World - Asia, Europe, North Africa"
+Into this -
+
+![An image of part of the world][worldHexGrid]
 
 ## Usage
 `npm hexMapGenerator.js <input-file.png> <output-file> <cols> <rows>`
@@ -30,3 +32,8 @@ Turn this -
 - [x] output array to file
 - [ ] clean up code :)
 - [ ] interface for viewing array as image and finetuning
+
+
+[world]: https://github.com/jjmax75/node-hexmap-generator/blob/master/test/resources/map.png "World - Asia, Europe, North Africa"
+
+[worldHexGrid]: https://github.com/jjmax75/node-hexmap-generator/blob/master/test/resources/example-output.png "World Hex Grid - Asia, Europe, North Africa"
