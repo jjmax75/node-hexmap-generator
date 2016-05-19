@@ -3,8 +3,6 @@
 const fs = require('fs');
 const path = process.cwd();
 
-var savePixels = require("save-pixels");
-
 const imageFile = path + '/' + process.argv[2];
 const outputFile = path + '/output/' + process.argv[3];
 const numCols = Number(process.argv[4]);
@@ -24,8 +22,6 @@ let sampleColours = [];
 image.pixelGetter(setImagePixels);
 function setImagePixels(pixels) {
   console.log('Crunched Yoh!');
-  // test to check if pixels can be rewritten as copy of original image -> works
-  // savePixels(pixels, 'png').pipe(fs.createWriteStream(outputFile));
   getSamplePixelsColours(pixels);
 }
 function getSamplePixelsColours(pixels) {
@@ -80,7 +76,7 @@ function mapColourToTileType(hsvValues) {
   }
 
   hsvValues.forEach(function(hsv) {
-    terrain.push(getCellType(hsv.h));
+    terrain.push(String(getCellType(hsv.h)));
   });
 
   writeToFile(terrain);
@@ -89,7 +85,7 @@ function mapColourToTileType(hsvValues) {
 function writeToFile(terrain) {
   fs.writeFile(outputFile, JSON.stringify(terrain), function(err) {
     if(err) {
-      return console.log(err);
+        return console.log(err);
     }
 
     console.log("The file was saved!");
