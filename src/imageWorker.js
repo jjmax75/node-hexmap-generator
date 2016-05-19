@@ -20,40 +20,45 @@ function imageWorker(pngFile) {
     })
   };
 
-  image.sampleGetter = function(pixels, xPos, yPos, length) {
+  image.sampleGetter = function(pixels, x, y) {
     let sampleArray = [];
-    const topLeftX = xPos - length/2; // x coord of top left corner of sample
-    const topLeftY = yPos - length/2; // y coord of top left corner of sample
-
-    let inputs = {
-      x: topLeftX,
-      y: topLeftY,
-      xLength: length,
-      yLength: length
-    };
-
-    if (topLeftX < 0 && topLeftY < 0) {
-      inputs.x = xPos;
-      inputs.y = yPos;
-      inputs.xLength = length/2;
-      inputs.yLength = length/2;
-    } else if (topLeftX < 0) {
-      inputs.x = xPos;
-      inputs.xLength = length/2;
-    } else if (topLeftY < 0) {
-      inputs.y = yPos;
-      inputs.yLength = length/2;
-    }
-
-    for (let y = inputs.y; y < inputs.y + inputs.yLength; y++){
-      for (let x = inputs.x; x < inputs.x + inputs.xLength; x++){
         for (let z = 0; z < 4; z++){
           sampleArray.push(pixels.get(x, y, z));
         }
-      }
-    }
+      return sampleArray;
+    // let sampleArray = [];
+    // const topLeftX = xPos - length/2; // x coord of top left corner of sample
+    // const topLeftY = yPos - length/2; // y coord of top left corner of sample
+    //
+    // let inputs = {
+    //   x: topLeftX,
+    //   y: topLeftY,
+    //   xLength: length,
+    //   yLength: length
+    // };
+    //
+    // if (topLeftX < 0 && topLeftY < 0) {
+    //   inputs.x = xPos;
+    //   inputs.y = yPos;
+    //   inputs.xLength = length/2;
+    //   inputs.yLength = length/2;
+    // } else if (topLeftX < 0) {
+    //   inputs.x = xPos;
+    //   inputs.xLength = length/2;
+    // } else if (topLeftY < 0) {
+    //   inputs.y = yPos;
+    //   inputs.yLength = length/2;
+    // }
+    //
+    // for (let y = inputs.y; y < inputs.y + inputs.yLength; y++){
+    //   for (let x = inputs.x; x < inputs.x + inputs.xLength; x++){
+    //     for (let z = 0; z < 4; z++){
+    //       sampleArray.push(pixels.get(x, y, z));
+    //     }
+    //   }
+    // }
 
-    return sampleArray;
+    // return sampleArray;
   };
 
   image.averageColour = function(data) {
