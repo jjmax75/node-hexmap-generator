@@ -2,7 +2,16 @@
 
 Input - png
 
-Output - array of map terrain to file -
+Output - array of map terrain to file
+
+## Example
+Turn this -
+
+![An image of part of the world][world]
+
+Into this -
+
+![An image of part of the world][worldHexGrid]
 
 ## Usage
 `npm hexMapGenerator.js <input-file.png> <output-file> <cols> <rows>`
@@ -16,8 +25,15 @@ Output - array of map terrain to file -
 - [x] get image width and height
 - [x] get hex radius
 - [x] get center point of each hex
-- [ ] get pixel sample (array->rgba values) function
-- [ ] get average colour(array->rgb) of each sample
-- [ ] get hsv(array) values from rgb averages
-- [ ] convert hsv to terrain type (array)
-- [ ] output array to file
+- [x] get pixel sample (array->rgba values) function
+- [x] get average colour(array->rgb) of each sample
+- [x] get hsv(array) values from rgb averages
+- [x] convert hsv to terrain type (array)
+- [x] output array to file
+- [ ] clean up code :)
+- [ ] interface for viewing array as image and finetuning
+
+
+[world]: https://github.com/jjmax75/node-hexmap-generator/blob/master/test/resources/map.png "World - Asia, Europe, North Africa"
+
+[worldHexGrid]: https://github.com/jjmax75/node-hexmap-generator/blob/master/test/resources/example-output.png "World Hex Grid - Asia, Europe, North Africa"
