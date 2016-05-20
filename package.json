@@ -27,6 +27,7 @@
     "tape": "4.5.1"
   },
   "dependencies": {
+    "bluebird": "3.4.0",
     "d3": "3.5.17",
     "d3-hexbin": "0.2.0",
     "get-pixels": "3.3.0",
