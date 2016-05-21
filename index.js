@@ -2,7 +2,6 @@
 
 const fs = require('fs');
 const path = process.cwd();
-const Promise = require('bluebird');
 
 const imageFile = path + '/' + process.argv[2];
 const outputFile = path + '/output/' + process.argv[3];
@@ -11,32 +10,21 @@ const numRows = Number(process.argv[5]);
 
 const createGridPoints = require('./src/createGridPoints');
 const imageWorker = require('./src/imageWorker');
+const generatorHelper = require('./src/generatorHelper');
 
 const image = imageWorker(imageFile);
 const gridPoints = createGridPoints(image.width, image.height, numCols, numRows);
+const helper = generatorHelper();
 
+// get details for the hexes
 const hexRadius = gridPoints.calculateHexRadius();
 const hexCentres = gridPoints.calculateEachHexCentre(hexRadius);
 
 // get rgba samples values for each hexagon
 let sampleColours = [];
 
-var getPixels = function(imageObject) {
-  return new Promise(function (resolve, reject) {
-    imageObject.pixelGetter(function (err, result) {
-      if (err) {
-        reject(err);
-      } else {
-        var pixels = result;
-        resolve(result);
-      }
-    });
-  });
-};
-
-getPixels(image)
+helper.getPixels(image)
 .then(function(pixels) {
-  console.log('Crunched Yoh!');
   getSamplePixelsColours(pixels);
 })
 .catch(function(error) {
