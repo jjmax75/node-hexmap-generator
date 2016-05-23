@@ -41,8 +41,7 @@ function imageWorker(pngFile) {
       yLength = Math.round(length/2);
     }
 
-
-    // testing with just centre pixel
+    // loop through pixel ndarray and push rgb values to samples
     for (let y = yPos; y < yPos + yLength; y++) {
       for (let x = xPos; x < xPos + xLength; x++) {
         for (var z = 0; z < 4; z++) {
@@ -50,9 +49,6 @@ function imageWorker(pngFile) {
         }
       }
     }
-    // for (var z = 0; z < 4; z++) {
-    //   sampleArray.push(pixels.get(xPos, yPos, z));
-    // }
 
     return sampleArray;
   };
