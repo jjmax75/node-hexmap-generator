@@ -2,9 +2,10 @@
   "name": "node-hex-map-generator",
   "version": "1.0.0",
   "description": "Generates a Hex Tile Map from an array of terrain types",
-  "main": "index.js",
+  "main": "app.js",
   "scripts": {
-    "start": "node index.js",
+    "start": "node app.js",
+    "dev": "nodemon app.js",
     "test": "tape test/*.js | tap-dot"
   },
   "repository": {
@@ -22,12 +23,19 @@
     "url": "https://github.com/jjmax75/node-hexmap-generator/issues"
   },
   "homepage": "https://github.com/jjmax75/node-hexmap-generator#readme",
+  "engines": {
+    "node": "4.4.4"
+  },
   "devDependencies": {
     "tap-dot": "1.0.5",
     "tape": "4.5.1"
   },
   "dependencies": {
-    "bluebird": "3.4.0",
-    "node-image-terrain-array": "1.0.1"
+    "dotenv": "2.0.0",
+    "ejs": "2.4.1",
+    "express": "4.13.4",
+    "morgan": "1.7.0",
+    "multer": "1.1.0",
+    "node-image-terrain-array": "1.0.2"
   }
 }

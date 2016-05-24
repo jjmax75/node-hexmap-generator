@@ -1,0 +1,22 @@
+body {
+  background-color: #eee;
+}
+
+form {
+  margin-bottom: 5px;
+}
+
+header {
+  margin-bottom: 40px;
+}
+
+.login, .register {
+  display: inline-block;
+  width: 48%;
+}
+
+footer {
+  margin-top: 40px;
+  padding: 10px;
+  text-align: center;
+}
