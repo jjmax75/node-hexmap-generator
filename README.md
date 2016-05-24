@@ -1,13 +1,13 @@
 # Node Hex Tile Map Generator by Box It Off
 
-Input - png
+Input - array of terrain types
 
-Output - array of map terrain to file
+Output - svg code for map terrain
 
 ## Example
 Turn this -
 
-![An image of part of the world][world]
+["water","water","water","water","water","water", ...,"land"...,"desert"...,"mountain"]
 
 Into this -
 
@@ -22,18 +22,7 @@ Into this -
 - Browser gui
 
 ## Tasks
-- [x] get image width and height
-- [x] get hex radius
-- [x] get center point of each hex
-- [x] get pixel sample (array->rgba values) function
-- [x] get average colour(array->rgb) of each sample
-- [x] get hsv(array) values from rgb averages
-- [x] convert hsv to terrain type (array)
-- [x] output array to file
-- [ ] clean up code :)
-- [ ] interface for viewing array as image and finetuning
-
-
-[world]: https://github.com/jjmax75/node-hexmap-generator/blob/master/test/resources/map.png "World - Asia, Europe, North Africa"
+- [ ] take array input
+- [ ] return svg code
 
 [worldHexGrid]: https://github.com/jjmax75/node-hexmap-generator/blob/master/test/resources/example-output.png "World Hex Grid - Asia, Europe, North Africa"
