@@ -3,6 +3,7 @@
 const path = process.cwd();
 
 const imageHandler = require(path + '/controllers/handleImage');
+const hsvToTerrain = require(path + '/controllers/hueToTerrain');
 
 const multer = require('multer');
 const storage = multer.diskStorage({
@@ -33,6 +34,14 @@ const upload = multer({
 
 module.exports = function(app) {
 
+  app.locals.mapData = {
+    terrain: [],
+    cols: 0,
+    rows: 0,
+    hexRadius: 0,
+    points: []
+  };
+
   app.get('/', function(req, res) {
     res.render('pages/index.ejs', {
       pageTitle: 'Upload PNG'
@@ -44,12 +53,30 @@ module.exports = function(app) {
       if (err) {
         res.send('Error - File must be a PNG');
       } else {
-        const image = imageHandler(req.file.path, req.body.numCols, req.body.numRows, setTerrain);
-        function setTerrain(terrain, points, hexRadius) {
-          console.log(terrain[33], points[0], hexRadius);
+        const image = imageHandler(req.file.path, req.body.numCols,
+          req.body.numRows, setTerrain);
+        function setTerrain(hsvValues, points, hexRadius) {
+          const terrain = hsvToTerrain(hsvValues);
+          req.app.locals.mapData.terrain = JSON.stringify(terrain);
+          req.app.locals.mapData.cols = req.body.numCols;
+          req.app.locals.mapData.rows = req.body.numRows;
+          req.app.locals.mapData.hexRadius = hexRadius;
+          req.app.locals.mapData.points = JSON.stringify(points);
+
+          res.redirect('/map');
         }
-        res.end('Uploaded');
       }
     });
   });
+
+  app.get('/map', function(req, res) {
+    res.render('pages/hexMap.ejs', {
+      pageTitle: 'Your map, Sir',
+      terrain: req.app.locals.mapData.terrain,
+      cols: req.app.locals.mapData.cols,
+      rows: req.app.locals.mapData.rows,
+      hexRadius: req.app.locals.mapData.hexRadius,
+      points: req.app.locals.mapData.points
+    });
+  })
 }

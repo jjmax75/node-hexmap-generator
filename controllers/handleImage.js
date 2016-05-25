@@ -1,7 +1,5 @@
 'use strict';
 
-const path = process.cwd();
-
 function imageHandler(file, rows, cols, cb) {
   const terrainFile = file;
   const numCols = Number(rows);
