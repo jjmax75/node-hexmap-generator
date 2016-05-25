@@ -3,7 +3,6 @@
 const express = require('express');
 const app = express();
 const morgan = require('morgan');
-const multer = require('multer'); // upload - https://www.npmjs.com/package/multer#readme
 
 require('dotenv').config();
 const port = process.env.PORT || 3000;
