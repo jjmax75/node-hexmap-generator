@@ -32,6 +32,6 @@ And then into this -
 - [x] take array input
 - [x] return svg code
 
-[physicalmap]:  https://github.com/jjmax75/node-hexmap-generator/blob/master/node-hexmap-generator/test/resources/map.png "Physical Map"
+[physicalmap]:  https://github.com/jjmax75/node-hexmap-generator/blob/master/test/resources/map.png "Physical Map"
 
 [worldHexGrid]: https://github.com/jjmax75/node-hexmap-generator/blob/master/test/resources/example-output.png "World Hex Grid - Asia, Europe, North Africa"
