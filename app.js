@@ -3,11 +3,13 @@
 const express = require('express');
 const app = express();
 const morgan = require('morgan');
+const favicon = require('serve-favicon');
 
 require('dotenv').config();
 const port = process.env.PORT || 3000;
 const path = process.cwd();
 
+app.use(favicon(path + '/static/img/favicon.ico'));
 app.use(morgan('dev'));
 app.set('view-engine', 'ejs');
 

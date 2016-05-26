@@ -1,5 +1,16 @@
+html, body {
+  margin: 0;
+  padding: 0;
+}
+
 body {
   background-color: #eee;
+}
+
+footer {
+  margin-top: 40px;
+  padding: 10px;
+  text-align: center;
 }
 
 form {
@@ -15,8 +26,11 @@ header {
   width: 48%;
 }
 
-footer {
-  margin-top: 40px;
-  padding: 10px;
+#map {
   text-align: center;
+}
+
+svg {
+  max-height: 80vh;
+  max-width: 90vw;
 }
