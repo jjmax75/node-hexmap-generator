@@ -21,7 +21,7 @@ And then into this -
 ![An SVG representation built with hexagons of that part of the world][worldHexGrid]
 
 ## Usage
-`npm hexMapGenerator.js <input-file.png> <output-file> <cols> <rows>`
+browser interface
 
 ## Further Development
 - output code for rendering map
