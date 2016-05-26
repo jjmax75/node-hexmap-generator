@@ -1,0 +1,6 @@
+{
+  "name": "Node Hexagon Tile Map Generator",
+  "tagline": "Generates a Hex Tile Map from a png",
+  "body": "# Node Hex Tile Map Generator by Box It Off\r\n\r\n(uses https://github.com/jjmax75/node-image-terrain-array to generate input values from a PNG image)\r\n\r\nInput - array of average hsv values for each hexagon, array of centre points of hexagons, hexagon radius\r\n\r\nOutput - svg code for map terrain\r\n\r\n## Example\r\n\r\nStart with this\r\n\r\n![a physical map of part of the world][physicalmap]\r\n\r\nTurn it into this -\r\n\r\n[{ h: 91, s: 55, v: 21 }, {....}, .....], [[ 9.804061174918171, 16.9811320754717 ], [ ....... ], ......], 11.320754716981131\r\n\r\nAnd then into this -\r\n\r\n![An SVG representation built with hexagons of that part of the world][worldHexGrid]\r\n\r\n## Demo\r\n<iframe width=\"420\" height=\"315\" src=\"https://www.youtube.com/embed/oXx29H_yG3I\" frameborder=\"0\" allowfullscreen></iframe>\r\n\r\n## Usage\r\nbrowser interface\r\n\r\n[physicalmap]:  https://github.com/jjmax75/node-hexmap-generator/blob/master/test/resources/map.png \"Physical Map\"\r\n\r\n[worldHexGrid]: https://github.com/jjmax75/node-hexmap-generator/blob/master/test/resources/example-output.png \"World Hex Grid - Asia, Europe, North Africa\"\r\n",
+  "note": "Don't delete this file! It's used internally to help with page regeneration."
+}
