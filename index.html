@@ -1,48 +1,40 @@
 <!DOCTYPE html>
-<html>
+<html lang="en-us">
   <head>
-    <meta charset='utf-8'>
-    <meta http-equiv="X-UA-Compatible" content="chrome=1">
-    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-    <link href='https://fonts.googleapis.com/css?family=Architects+Daughter' rel='stylesheet' type='text/css'>
+    <meta charset="UTF-8">
+    <title>Node Hexagon Tile Map Generator by jjmax75</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" type="text/css" href="stylesheets/normalize.css" media="screen">
+    <link href='https://fonts.googleapis.com/css?family=Open+Sans:400,700' rel='stylesheet' type='text/css'>
     <link rel="stylesheet" type="text/css" href="stylesheets/stylesheet.css" media="screen">
     <link rel="stylesheet" type="text/css" href="stylesheets/github-light.css" media="screen">
-    <link rel="stylesheet" type="text/css" href="stylesheets/print.css" media="print">
-
-    <!--[if lt IE 9]>
-    <script src="//html5shiv.googlecode.com/svn/trunk/html5.js"></script>
-    <![endif]-->
-
-    <title>Node Hexagon Tile Map Generator by jjmax75</title>
   </head>
-
   <body>
-    <header>
-      <div class="inner">
-        <h1>Node Hexagon Tile Map Generator</h1>
-        <h2>Generates a Hex Tile Map from a png</h2>
-        <a href="https://github.com/jjmax75/node-hexmap-generator" class="button"><small>View project on</small> GitHub</a>
-      </div>
-    </header>
+    <section class="page-header">
+      <h1 class="project-name">Node Hexagon Tile Map Generator</h1>
+      <h2 class="project-tagline">Generates a Hex Tile Map from a png</h2>
+      <a href="https://github.com/jjmax75/node-hexmap-generator" class="btn">View on GitHub</a>
+      <a href="https://github.com/jjmax75/node-hexmap-generator/zipball/master" class="btn">Download .zip</a>
+      <a href="https://github.com/jjmax75/node-hexmap-generator/tarball/master" class="btn">Download .tar.gz</a>
+    </section>
 
-    <div id="content-wrapper">
-      <div class="inner clearfix">
-        <section id="main-content">
-          <h1>
+    <section class="main-content">
+      <h1>
 <a id="node-hex-tile-map-generator-by-box-it-off" class="anchor" href="#node-hex-tile-map-generator-by-box-it-off" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>Node Hex Tile Map Generator by Box It Off</h1>
 
-<p>Uses <a href="https://github.com/jjmax75/node-image-terrain-array">https://github.com/jjmax75/node-image-terrain-array</a> to generate input values from a PNG image</p>
+<h4>
+<a id="uses-httpsgithubcomjjmax75node-image-terrain-array-to-generate-input-values-from-a-png-image" class="anchor" href="#uses-httpsgithubcomjjmax75node-image-terrain-array-to-generate-input-values-from-a-png-image" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>Uses <a href="https://github.com/jjmax75/node-image-terrain-array">https://github.com/jjmax75/node-image-terrain-array</a> to generate input values from a PNG image</h4>
 
-<p>Input - array of average hsv values for each hexagon, array of centre points of hexagons, hexagon radius</p>
+<p><strong>Input</strong> - array of average hsv values for each hexagon, array of centre points of hexagons, hexagon radius</p>
 
-<p>Output - svg code for map terrain</p>
+<p><strong>Output</strong> - Page with SVG of map terrain</p>
 
 <h2>
 <a id="example" class="anchor" href="#example" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>Example</h2>
 
 <p>Start with this</p>
 
-<p><img src="https://github.com/jjmax75/node-hexmap-generator/blob/master/test/resources/map.png" alt="a physical map of part of the world" title="Physical Map"></p>
+<p><img src="https://github.com/jjmax75/node-hexmap-generator/blob/gh-pages/images/map.png" alt="Physical map of part of the world"></p>
 
 <p>Turn it into this -</p>
 
@@ -50,34 +42,25 @@
 
 <p>And then into this -</p>
 
-<p><img src="https://github.com/jjmax75/node-hexmap-generator/blob/master/test/resources/example-output.png" alt="An SVG representation built with hexagons of that part of the world" title="World Hex Grid - Asia, Europe, North Africa"></p>
+<p><img src="https://github.com/jjmax75/node-hexmap-generator/blob/gh-pages/images/example-output.png" alt="Page with SVG representation of map using Hexagon grid"></p>
 
 <h2>
 <a id="demo" class="anchor" href="#demo" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>Demo</h2>
-<iframe width="420" height="315" src="https://www.youtube.com/embed/oXx29H_yG3I" frameborder="0" allowfullscreen></iframe>
+
+
 
 <h2>
 <a id="usage" class="anchor" href="#usage" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>Usage</h2>
 
 <p>browser interface</p>
-        </section>
 
-        <aside id="sidebar">
-          <a href="https://github.com/jjmax75/node-hexmap-generator/zipball/master" class="button">
-            <small>Download</small>
-            .zip file
-          </a>
-          <a href="https://github.com/jjmax75/node-hexmap-generator/tarball/master" class="button">
-            <small>Download</small>
-            .tar.gz file
-          </a>
+      <footer class="site-footer">
+        <span class="site-footer-owner"><a href="https://github.com/jjmax75/node-hexmap-generator">Node Hexagon Tile Map Generator</a> is maintained by <a href="https://github.com/jjmax75">jjmax75</a>.</span>
 
-          <p class="repo-owner"><a href="https://github.com/jjmax75/node-hexmap-generator"></a> is maintained by <a href="https://github.com/jjmax75">jjmax75</a>.</p>
+        <span class="site-footer-credits">This page was generated by <a href="https://pages.github.com">GitHub Pages</a> using the <a href="https://github.com/jasonlong/cayman-theme">Cayman theme</a> by <a href="https://twitter.com/jasonlong">Jason Long</a>.</span>
+      </footer>
 
-          <p>This page was generated by <a href="https://pages.github.com">GitHub Pages</a> using the Architect theme by <a href="https://twitter.com/jasonlong">Jason Long</a>.</p>
-        </aside>
-      </div>
-    </div>
+    </section>
 
   
   </body>
