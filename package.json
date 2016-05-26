@@ -39,6 +39,6 @@
     "express": "4.13.4",
     "morgan": "1.7.0",
     "multer": "1.1.0",
-    "node-image-terrain-array": "1.0.4"
+    "node-image-terrain-array": "1.0.5"
   }
 }

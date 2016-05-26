@@ -15,17 +15,17 @@
       <div id="upload-form">
         <form method="post" action="/process-image" enctype="multipart/form-data">
           <div class="form-group">
-            <label for="numCols">Number of columns</label>
-            <input type="number" required min="1" max="256" value="1" onkeypress="checkNumberInput(event)" class="form-control" id="numCols" name="numCols" placeholder="How many columns?">
+            <label for="numCols">Number of columns (max 256)</label>
+            <input type="number" required min="1" max="256" value="1" class="form-control" id="numCols" name="numCols" placeholder="How many columns?">
           </div>
           <div class="form-group">
-            <label for="numRows">Number of rows</label>
-            <input type="number" required min="1" max="256" value="1" onkeypress="checkNumberInput(event)" class="form-control" id="numRows" name="numRows" placeholder="How many rows?">
+            <label for="numRows">Number of rows (max 256)</label>
+            <input type="number" required min="1" max="256" value="1" class="form-control" id="numRows" name="numRows" placeholder="How many rows?">
           </div>
           <div class="form-group">
             <label for="pngFile">PNG file</label>
             <input type="file" id="pngFile" name="pngFile" required accept="image/png">
-            <p class="help-block">Must be a PNG file. Max-size is 5MB</p>
+            <p class="help-block">Must be a PNG file. Max-size is 1MB</p>
           </div>
 
           <button type="submit" class="btn btn-default">Build it Baby!</button>

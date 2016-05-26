@@ -6,18 +6,19 @@ const imageHandler = require(path + '/controllers/handleImage');
 const hsvToTerrain = require(path + '/controllers/hueToTerrain');
 
 const multer = require('multer');
-const storage = multer.diskStorage({
-  destination: function(req, file, cb) {
-    cb(null, path + '/uploads/');
-  },
-  filename: function(req, file, cb) {
-    cb(null, Date.now() + '_' + file.originalname);
-  }
-});
+// const storage = multer.diskStorage({
+//   destination: function(req, file, cb) {
+//     cb(null, path + '/uploads/');
+//   },
+//   filename: function(req, file, cb) {
+//     cb(null, Date.now() + '_' + file.originalname);
+//   }
+// });
+const storage = multer.memoryStorage();
 const upload = multer({
   storage: storage,
   limits: {
-    fileSize: 5242880 // 5MB
+    fileSize: 1048576
   },
   filename: function(req, file, cb) {
     cb(null, Date.now() + '.png');
@@ -53,7 +54,7 @@ module.exports = function(app) {
       if (err) {
         res.send('Error - File must be a PNG');
       } else {
-        const image = imageHandler(req.file.path, req.body.numCols,
+        const image = imageHandler(req.file.buffer, req.body.numCols,
           req.body.numRows, setTerrain);
         function setTerrain(hsvValues, points, hexRadius) {
           const terrain = hsvToTerrain(hsvValues);
