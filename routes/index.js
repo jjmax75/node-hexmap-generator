@@ -54,13 +54,12 @@ module.exports = function(app) {
       if (err) {
         res.send('Error - File must be a PNG');
       } else {
-        const image = imageHandler(req.file.buffer, req.body.numCols,
-          req.body.numRows, setTerrain);
-        function setTerrain(hsvValues, points, hexRadius) {
+        const image = imageHandler(req.file.buffer, req.body.numCols, setTerrain);
+        function setTerrain(hsvValues, points, hexRadius, rows) {
           const terrain = hsvToTerrain(hsvValues);
           req.app.locals.mapData.terrain = JSON.stringify(terrain);
           req.app.locals.mapData.cols = req.body.numCols;
-          req.app.locals.mapData.rows = req.body.numRows;
+          req.app.locals.mapData.rows = rows;
           req.app.locals.mapData.hexRadius = hexRadius;
           req.app.locals.mapData.points = JSON.stringify(points);
 
